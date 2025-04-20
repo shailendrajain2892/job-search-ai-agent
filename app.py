@@ -24,6 +24,11 @@ else:
     st.stop()
 # Check if API keys are set
 
+if "openai_key" not in st.session_state:
+    st.session_state["openai_key"] = ""
+
+st.session_state["openai_key"] = openai_key
+
 # Initialize LLM and Search Tool
 llm = ChatOpenAI(temperature=0.3, model="gpt-3.5-turbo")
 search = SerpAPIWrapper()
