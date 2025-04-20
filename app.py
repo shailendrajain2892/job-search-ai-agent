@@ -17,8 +17,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Load API keys
-os.environ["OPENAI_API_KEY"] = st.secrets.get("OPENAI_API_KEY")
-os.environ["SERPAPI_API_KEY"] = st.secrets.get("SERPAPI_API_KEY")
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+os.environ["SERPAPI_API_KEY"] = st.secrets["SERPAPI_API_KEY"]
 # Check if API keys are set
 
 # Initialize LLM and Search Tool
