@@ -13,12 +13,15 @@ from langchain.prompts import PromptTemplate
 import tempfile
 import os
 
-from dotenv import load_dotenv
-load_dotenv()
+openai_key = st.text_input("🔑 Enter your OpenAI API Key", type="password")
+serpapi_key = st.text_input("🔍 Enter your SerpAPI Key", type="password")
 
-# Load API keys
-os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
-os.environ["SERPAPI_API_KEY"] = st.secrets["SERPAPI_API_KEY"]
+if openai_key and serpapi_key:
+    os.environ["OPENAI_API_KEY"] = openai_key
+    os.environ["SERPAPI_API_KEY"] = serpapi_key
+else:
+    st.warning("Please enter both API keys to continue.")
+    st.stop()
 # Check if API keys are set
 
 # Initialize LLM and Search Tool
